@@ -1,0 +1,127 @@
+---
+title: "Gwen’s and Tom’s simple guide to writing a script"
+author: "Gwen Fernandes, Thomas Battram"
+output: 
+  powerpoint_presentation:
+    reference_doc: uob_template_for_markdown.pptx
+---
+
+### 3 steps before starting
+1. Why am I writing this script?
+2. What do I need to write this script?
+3. How am I going to write this script? 
+
+### Step 1: Why am I writing this script? 
+
+* Think about it and write it down!!!
+* e.g. clean a dataset, assess association between x and y
+
+* Give the script a good name, write a descriptive title + add a couple of lines that describe the purpose of the script
+
+``` {r title example, echo = TRUE}
+# ------------------------------------------
+# Generating pack years in ALSPAC
+# ------------------------------------------
+
+# This script extracts smoking variables from the mothers within ALSPAC and uses this to generate pack years. Authors: Thomas Battram, Gwen Fernandes. Date: 2020/02/15
+```
+
+### Step 2: What do I need to write this script?
+
+* Datasets!
+
+* Using only base R can make things difficult... --> Packages! 
+
+For example to get data from STATA into R you could manually copy and paste all the info from STATA into an excel spreadsheet and then read in the data with "read.csv()" OR you could use a function from a package that has already found a nice way to read in STATA files.
+
+``` {r package example, echo = TRUE, eval = FALSE}
+library(haven)
+df <- read_dta("my_data.dta")
+```
+
+
+### Step 3: How am I going to write this script? 
+
+* As you have thought about why you're writing the script and what you need this should be easy! 
+* Write out each step
+
+``` {r instructions example, echo = TRUE}
+
+# 1. Read in the input data
+# 2. Extract the smoking variables
+# 3. Exclude indiviauls with withdrawn consent and too much missing data
+# 4. Generate pack years variable 
+# 5. Check for outliers
+# 6. Write out a table with identifiers and pack years variables
+
+```
+
+### Top of the script
+``` {r top of script, echo = TRUE, eval = FALSE}
+# ------------------------------------------
+# Generating pack years in ALSPAC
+# ------------------------------------------
+
+# This script extracts smoking variables from the mothers within ALSPAC and uses this to generate pack years. Authors: Thomas Battram, Gwen Fernandes. Date: 2020/02/15
+
+# load packages
+library(haven)
+
+# read in data
+df <- read_dta("my_data.dta")
+
+# structure of the script:
+# 1. Read in the input data
+# 2. Extract the smoking variables
+# 3. Exclude individuals with withdrawn consent and too much missing data
+# 4. Generate pack years variable 
+# 5. Check for outliers
+# 6. Write out a table with identifiers and pack years variables
+```
+
+### Commenting
+
+* Start with many comments! 
+* As you code more you'll end up wanting to comment just to explain why things are being done, but to begin with I found it easier to comment what was happening as well as why things are being done.
+
+* Also, use comments to split up the script to make it clearer e.g.
+
+``` {r commenting, echo = TRUE, eval = FALSE}
+# ------------------------------------------
+# Extracting smoking variables and excluding individuals
+# ------------------------------------------
+
+# comment
+some_code
+
+# comment
+more_code
+
+# ------------------------------------------
+# Generating pack years
+# ------------------------------------------
+
+```
+
+### Make your code easy to read
+
+2 big points here:
+
+1. Use a consistent style when writing code
+
+``` {r consistent_style, echo = TRUE, eval = FALSE}
+a_var <- c(1, 2, 3)
+another.var <- c(4, 5, 6)
+anotherVar <- c(7, 8, 9)
+AnoTherVAr <- c(10, 11, 12)
+```
+
+2. Use spaces appropriately
+
+``` {r spaces, echo = TRUE, eval = FALSE}
+x <-c(1,2,51,124,60386920-142,4124)
+x <- c(1, 2, 51, 124, 60386920 - 142, 4124)
+x   <-        c(1   ,2    ,   51,124    ,60386920-     142, 4124) 
+```
+
+
