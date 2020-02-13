@@ -3,7 +3,7 @@ title: "Gwen’s and Tom’s simple guide to writing a script"
 author: "Gwen Fernandes, Thomas Battram"
 output: 
   powerpoint_presentation:
-    reference_doc: uob_template_for_markdown.pptx
+    reference_doc: ../slides/uob_template_for_markdown.pptx
 ---
 
 ### 3 steps before starting
