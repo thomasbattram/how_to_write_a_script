@@ -30,9 +30,9 @@ output:
 
 * Datasets!
 
-* Using only base R can make things difficult... --> Packages! 
+* Using only base R can make things difficult... Packages! 
 
-For example to get data from STATA into R you could manually copy and paste all the info from STATA into an excel spreadsheet and then read in the data with "read.csv()" OR you could use a function from a package that has already found a nice way to read in STATA files.
+For example, you can use packages to read data in a Stata format directly into R
 
 ``` {r package example, echo = TRUE, eval = FALSE}
 library(haven)
@@ -47,12 +47,11 @@ df <- read_dta("my_data.dta")
 
 ``` {r instructions example, echo = TRUE}
 
-# 1. Read in the input data
-# 2. Extract the smoking variables
-# 3. Exclude indiviauls with withdrawn consent and too much missing data
-# 4. Generate pack years variable 
-# 5. Check for outliers
-# 6. Write out a table with identifiers and pack years variables
+# 1. Extract the smoking variables
+# 2. Exclude indiviauls with withdrawn consent and too much missing data
+# 3. Generate pack years variable 
+# 4. Check for outliers
+# 5. Write out a table with identifiers and pack years variables
 
 ```
 
@@ -71,18 +70,18 @@ library(haven)
 df <- read_dta("my_data.dta")
 
 # structure of the script:
-# 1. Read in the input data
-# 2. Extract the smoking variables
-# 3. Exclude individuals with withdrawn consent and too much missing data
-# 4. Generate pack years variable 
-# 5. Check for outliers
-# 6. Write out a table with identifiers and pack years variables
+# 1. Extract the smoking variables
+# 2. Exclude individuals with withdrawn consent and too much missing data
+# 3. Generate pack years variable 
+# 4. Check for outliers
+# 5. Write out a table with identifiers and pack years variables
+
 ```
 
 ### Commenting
 
 * Start with many comments! 
-* As you code more you'll end up wanting to comment just to explain why things are being done, but to begin with I found it easier to comment what was happening as well as why things are being done.
+* As you code more you'll end up wanting to comment just to explain WHY things are being done, but to begin with I found it easier to comment WHAT was happening as well as why things are being done.
 
 * Also, use comments to split up the script to make it clearer e.g.
 
@@ -111,9 +110,8 @@ more_code
 
 ``` {r consistent_style, echo = TRUE, eval = FALSE}
 a_var <- c(1, 2, 3)
-another.var <- c(4, 5, 6)
-anotherVar <- c(7, 8, 9)
-AnoTherVAr <- c(10, 11, 12)
+a.var <- c(4, 5, 6)
+aVar <- c(7, 8, 9)
 ```
 
 2. Use spaces appropriately
