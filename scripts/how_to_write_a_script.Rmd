@@ -124,4 +124,6 @@ x <- c(1, 2, 51, 124, 60386920 - 142, 4124)
 x   <-        c(1   ,2    ,   51,124    ,60386920-     142, 4124) 
 ```
 
-## 
+--- 
+
+Slides and markdown script is available here: https://github.com/thomasbattram/how_to_write_a_script
