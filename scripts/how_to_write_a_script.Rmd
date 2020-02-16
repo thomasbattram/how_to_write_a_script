@@ -32,7 +32,11 @@ output:
 
 * Using only base R can make things difficult... Packages! 
 
+<br>
+
 For example, you can use packages to read data in a Stata format directly into R
+
+<br>
 
 ``` {r package example, echo = TRUE, eval = FALSE}
 library(haven)
@@ -110,9 +114,11 @@ more_code
 
 ``` {r consistent_style, echo = TRUE, eval = FALSE}
 a_var <- c(1, 2, 3)
-a.var <- c(4, 5, 6)
-aVar <- c(7, 8, 9)
+a.var <- c(1, 2, 3)
+aVar <- c(1, 2, 3)
 ```
+
+<br>
 
 2. Use spaces appropriately
 
