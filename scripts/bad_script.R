@@ -1,4 +1,5 @@
 setwd("a_directory")
+data_cveda <- read.delim("data_cveda.txt")
 data_cveda 
 
 names(data_cveda) 

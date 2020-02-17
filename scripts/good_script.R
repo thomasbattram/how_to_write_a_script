@@ -8,7 +8,7 @@
 # Set directory and import data and save as data_cveda
 setwd("a_directory")
 
-data_cveda <-
+data_cveda <- read.delim("data_cveda.txt")
 
 # ------------------------------------
 # Examine the data and add a variable for children
