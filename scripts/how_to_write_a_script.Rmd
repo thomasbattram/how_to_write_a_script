@@ -6,6 +6,40 @@ output:
     reference_doc: ../slides/uob_template_for_markdown.pptx
 ---
 
+### Outline
+
+* Commenting your scripts
+* What to think about before starting to script
+* How the top of your script should look
+* Making your code easier to read
+* Saving your scripts
+
+### Commenting
+
+* Code with a # before it does not get run
+* This is useful for making your scripts much easier to read! 
+* Comment on WHY and WHAT (to start with)
+	+ Start with many comments!!!
+Also, use comments to split up the script to make it clearer e.g.
+
+``` {r commenting, echo = TRUE, eval = FALSE}
+# ------------------------------------------
+# Part A of script
+# ------------------------------------------
+
+# comment
+some_code
+
+# comment
+more_code
+
+# ------------------------------------------
+# Part B of script
+# ------------------------------------------
+
+```
+
+
 ### 3 steps before starting
 1. Why am I writing this script?
 2. What do I need to write this script?
@@ -31,12 +65,24 @@ output:
 * Datasets!
 
 * Using only base R can make things difficult... Packages! 
+* Packages are made by others and are there to make your life easier
 
 <br>
 
-For example, you can use packages to read data in a Stata format directly into R
+For example, reading data into R can be tricky depending on how the data is stored, but packages can make this easier! 
 
-<br>
+### Reading data into R
+
+Depending on what form the data is in, you have to use different functions to read in the data. Data you get may be in:
+
+* excel spreadsheets
+* comma seperated value (csv) files 
+* text separated value (tsv) files
+* spss files
+* stata files
+* images (e.g. .png files)
+
+These need different functions to read them in, some of which are only available with certain packages.
 
 ``` {r package example, echo = TRUE, eval = FALSE}
 library(haven)
@@ -51,6 +97,7 @@ df <- read_dta("my_data.dta")
 
 ``` {r instructions example, echo = TRUE}
 
+# structure of the script:
 # 1. Extract the smoking variables
 # 2. Exclude indiviauls with withdrawn consent and too much missing data
 # 3. Generate pack years variable 
@@ -82,30 +129,6 @@ df <- read_dta("my_data.dta")
 
 ```
 
-### Commenting
-
-* Start with many comments! 
-* As you code more you'll end up wanting to comment just to explain WHY things are being done, but to begin with I found it easier to comment WHAT was happening as well as why things are being done.
-
-* Also, use comments to split up the script to make it clearer e.g.
-
-``` {r commenting, echo = TRUE, eval = FALSE}
-# ------------------------------------------
-# Extracting smoking variables and excluding individuals
-# ------------------------------------------
-
-# comment
-some_code
-
-# comment
-more_code
-
-# ------------------------------------------
-# Generating pack years
-# ------------------------------------------
-
-```
-
 ### Make your code easy to read
 
 2 big points here:
@@ -127,6 +150,28 @@ x <-c(1,2,51,124,60386920-142,4124)
 x <- c(1, 2, 51, 124, 60386920 - 142, 4124)
 x   <-        c(1   ,2    ,   51,124    ,60386920-     142, 4124) 
 ```
+
+### Saving scripts
+
+It's important to save scripts as you go and you can always come back to them and send them to other people.
+
+To save the script you can just press the save button in RStudio or press ctrl + S (or cmd + S for Macs).
+
+Give the script a good name and save it regularly! 
+
+### Summary 
+
+3 questions to think about before writing a script:
+
+1. Why am I writing this script?
+2. What do I need to write this script?
+3. How am I going to write this script? 
+
+<br>
+
+* Comment your code a lot
+* Make your code easy to read
+* Save your scripts regularly
 
 --- 
 
