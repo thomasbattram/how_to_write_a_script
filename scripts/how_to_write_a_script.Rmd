@@ -6,59 +6,105 @@ output:
     reference_doc: ../slides/uob_template_for_markdown.pptx
 ---
 
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+if (!require(knitr)) {
+	install.packages("knitr")
+}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, 
+            warning = FALSE, 
+            message = TRUE, 
+            cache = FALSE, 
+            dpi = 300 
+            )
+
+fig_path <- "../slides/figures"
+```
+
 ### Outline
 
+* Making a new R script
 * Commenting your scripts
 * What to think about before starting to script
 * How the top of your script should look
 * Making your code easier to read
 * Saving your scripts
 
+### Making a new R script
+
+* The usual R Studio screen has four windows: 
+	+ CONSOLE 
+	+ WORKPLCE AND HISTORY 
+	+ FILES, PLOTS, PACKAGES AND HELP 
+	+ __R SCRIPT AND DATA VIEW__ (this is where you keep a record of your work. For Stata users, this would be like your do-file, for SPSS users it is like the syntax and for SAS users, the SAS program. 
+
+***
+
+``` {r rstudio-full-screen, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "rstudio-full-screen.pdf"))
+```
+
+### Making a new R script
+
+``` {r make-new-r-script, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "new-r-script.pdf"))
+```
+
+### Making a new R script
+
+``` {r script-to-console, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "script-to-console.pdf"))
+```
+
 ### Commenting
 
+:::::: {.columns}
+::: {.column}
 * Code with a # before it does not get run
 * This is useful for making your scripts much easier to read! 
 * Comment on WHY and WHAT (to start with)
 	+ Start with many comments!!!
-Also, use comments to split up the script to make it clearer e.g.
+Also, use comments to split up the script to make it clearer
+:::
 
-``` {r commenting, echo = TRUE, eval = FALSE}
-# ------------------------------------------
-# Part A of script
-# ------------------------------------------
+::: {.column}
 
-# comment
-some_code
-
-# comment
-more_code
-
-# ------------------------------------------
-# Part B of script
-# ------------------------------------------
-
+``` {r commenting, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "commenting-example.png"))
 ```
 
+:::
+::::::
 
 ### 3 steps before starting
 1. Why am I writing this script?
+
+<br>
+
 2. What do I need to write this script?
+
+<br>
+
 3. How am I going to write this script? 
 
 ### Step 1: Why am I writing this script? 
 
-* Think about it and write it down!!!
-* e.g. clean a dataset, assess association between x and y
+:::::: {.columns}
+::: {.column}
+* Think about it and write it down!
+	+ e.g. clean a dataset OR assess association between x and y
 
 * Give the script a good name, write a descriptive title + add a couple of lines that describe the purpose of the script
+:::
 
-``` {r title example, echo = TRUE}
-# ------------------------------------------
-# Generating pack years in ALSPAC
-# ------------------------------------------
+::: {.column}
 
-# This script extracts smoking variables from the mothers within ALSPAC and uses this to generate pack years. Authors: Thomas Battram, Gwen Fernandes. Date: 2020/02/15
+``` {r title, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "title-example.png"))
 ```
+
+:::
+::::::
 
 ### Step 2: What do I need to write this script?
 
@@ -84,80 +130,80 @@ Depending on what form the data is in, you have to use different functions to re
 
 These need different functions to read them in, some of which are only available with certain packages.
 
-``` {r package example, echo = TRUE, eval = FALSE}
-library(haven)
-df <- read_dta("my_data.dta")
+``` {r package-example, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "package-example.png"))
 ```
-
 
 ### Step 3: How am I going to write this script? 
 
-* As you have thought about why you're writing the script and what you need this should be easy! 
+:::::: {.columns}
+::: {.column}
+* Linked to why you are writing it and what you need to write it! 
+
+<br>
+ 
 * Write out each step
+:::
 
-``` {r instructions example, echo = TRUE}
+::: {.column}
 
-# structure of the script:
-# 1. Extract the smoking variables
-# 2. Exclude indiviauls with withdrawn consent and too much missing data
-# 3. Generate pack years variable 
-# 4. Check for outliers
-# 5. Write out a table with identifiers and pack years variables
-
+``` {r instructions-example, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "structure-example.png"))
 ```
 
+:::
+::::::
+
 ### Top of the script
-``` {r top of script, echo = TRUE, eval = FALSE}
-# ------------------------------------------
-# Generating pack years in ALSPAC
-# ------------------------------------------
-
-# This script extracts smoking variables from the mothers within ALSPAC and uses this to generate pack years. Authors: Thomas Battram, Gwen Fernandes. Date: 2020/02/15
-
-# load packages
-library(haven)
-
-# read in data
-df <- read_dta("my_data.dta")
-
-# structure of the script:
-# 1. Extract the smoking variables
-# 2. Exclude individuals with withdrawn consent and too much missing data
-# 3. Generate pack years variable 
-# 4. Check for outliers
-# 5. Write out a table with identifiers and pack years variables
-
+``` {r top-of-script, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "top-of-script.png"))
 ```
 
 ### Make your code easy to read
 
-2 big points here:
-
+:::::: {.columns}
+::: {.column}
 1. Use a consistent style when writing code
 
-``` {r consistent_style, echo = TRUE, eval = FALSE}
-a_var <- c(1, 2, 3)
-a.var <- c(1, 2, 3)
-aVar <- c(1, 2, 3)
-```
+<br>
+
+<br>
+
+<br>
 
 <br>
 
 2. Use spaces appropriately
+:::
 
-``` {r spaces, echo = TRUE, eval = FALSE}
-x <-c(1,2,51,124,60386920-142,4124)
-x <- c(1, 2, 51, 124, 60386920 - 142, 4124)
-x   <-        c(1   ,2    ,   51,124    ,60386920-     142, 4124) 
+::: {.column}
+
+``` {r hard-to-read-code, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "hard-to-read-code.png"))
 ```
+
+:::
+::::::
 
 ### Saving scripts
 
-It's important to save scripts as you go and you can always come back to them and send them to other people.
+:::::: {.columns}
+::: {.column}
+* It's important to save scripts as you go and you can always come back to them and send them to other people.
 
-To save the script you can just press the save button in RStudio or press ctrl + S (or cmd + S for Macs).
+<br>
 
-Give the script a good name and save it regularly! 
+* Give the script a good name and save it regularly! 
+:::
+
+::: {.column}
+
+``` {r save-script, message=FALSE, results="asis"}
+include_graphics(file.path(fig_path, "save-script.png"))
+```
+
+:::
+::::::
 
 ### Summary 
 
@@ -169,10 +215,24 @@ Give the script a good name and save it regularly!
 
 <br>
 
-* Comment your code a lot
+* Comment your code a lot (using #)
 * Make your code easy to read
 * Save your scripts regularly
 
---- 
+### Git
 
-Slides and markdown script is available here: https://github.com/thomasbattram/how_to_write_a_script
+* One way to share scripts with the world (or just your collaborators) is through [GitHub](https://github.com/). 
+
+<br>
+
+* Slides are available here: https://github.com/thomasbattram/how_to_write_a_script
+
+### On to the practical!! 
+
+* [Bad script](https://github.com/thomasbattram/how_to_write_a_script/blob/master/scripts/bad_script.R)
+
+<br>
+
+* [Good script](https://github.com/thomasbattram/how_to_write_a_script/blob/master/scripts/bad_script.R)
+
+
