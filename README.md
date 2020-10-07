@@ -10,4 +10,4 @@ This repository contains slides and example scripts from a session that is a sma
 
 ## Making the slides
 
-To build the slides yourself, clone the repository then navigate to the `scripts` directory and run `bash make_slides.sh`.
+To build the slides yourself, clone the repository then navigate to the `scripts` directory and run `bash make_slides.sh`. This should render the powerpoint `how_to_write_a_script.pptx`. To get from this to `how_to_write_a_script_final.pptx` some manual editing is needed.
