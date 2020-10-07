@@ -128,7 +128,7 @@ Depending on what form the data is in, you have to use different functions to re
 * stata files
 * images (e.g. .png files)
 
-These need different functions to read them in, some of which are only available with certain packages.
+These need different functions to read them in, some of which are only available with certain packages – will be covered in more detail in the "managing data” session. 
 
 ``` {r package-example, message=FALSE, results="asis"}
 include_graphics(file.path(fig_path, "package-example.png"))
@@ -227,12 +227,18 @@ include_graphics(file.path(fig_path, "save-script.png"))
 
 * Slides are available here: https://github.com/thomasbattram/how_to_write_a_script
 
+<br>
+
+* For the curious: 
+	+ Rationale for github: https://guides.github.com/introduction/git-handbook/ 
+	+ Quickstart guide: https://guides.github.com/activities/hello-world/ 
+
 ### On to the practical!! 
 
 * [Bad script](https://github.com/thomasbattram/how_to_write_a_script/blob/master/scripts/bad_script.R)
 
 <br>
 
-* [Good script](https://github.com/thomasbattram/how_to_write_a_script/blob/master/scripts/bad_script.R)
+* [Good script](https://github.com/thomasbattram/how_to_write_a_script/blob/master/scripts/good_script.R)
 
 

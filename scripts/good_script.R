@@ -4,6 +4,7 @@
 
 # This script assesses the association between parental corp punishment
 # and total sdq score within the cveda cohort.
+# Date: 2020-10-21
 
 # Set directory and import data and save as data_cveda
 setwd("a_directory")
