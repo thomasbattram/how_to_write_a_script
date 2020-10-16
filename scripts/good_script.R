@@ -1,9 +1,9 @@
 # ------------------------------------
-# Association between corp punishment and sdq score
+# cVEDA: Association between parental punishment and behaviour 
 # ------------------------------------
 
-# This script assesses the association between parental corp punishment
-# and total sdq score within the cveda cohort.
+# This script assesses the association between parental corporal punishment
+# and total sdq (Strength and Difficulty Questionnaire) score within the cveda cohort
 # Date: 2020-10-21
 
 # Set directory and import data and save as data_cveda
@@ -56,10 +56,10 @@ summary(d_child$p_sdq_tot, na.rm = TRUE) # 0, 8, 12, 11.97, 16, 32, NA (56)
 # Run the analyses! 
 # ------------------------------------
 
-# correlation between emotion problems and conduct problems
+# correlation between SDQ emotion problems and SDQ conduct problems
 cor(data_cveda$p_sdq_emotion, data_cveda$p_sdq_conduct, use = “pairwise.complete.obs”)  
 
-# table of numbers with anxiety/depression
+# table of numbers with anxiety/depression in a first degree relative
 table(data_cveda$depanx_1stdeg)
 ###The following will produce a three-way cross-tabulation between anxiety/depression in a first degree relative with gender. ###
 table(data_cveda$depanx_1stdeg, data_cveda$sex)
@@ -70,7 +70,7 @@ boxplot(p_sdq_emotion ~ corpunish, data = data_cveda)
 ## Regressions:
 # Model 1 looks at the basic linear relationship between parental corp punishment and total sdq score.
 # Model 2 includes adjustment for age and sex
-# Model 3 includes adjustment for age, sex and site 
+# Model 3 includes adjustment for age, sex, urbanisation, houseownership and site 
 
 model1 <- lm(p_sdq_tot ~ corpunish, data=data_cveda) 
 summary(model1)
@@ -78,5 +78,5 @@ summary(model1)
 model2 <- lm(p_sdq_tot ~ corpunish + age + sex, data=data_cveda) 
 summary(model2) 
 
-model3 <- lm(p_sdq_tot ~ corpunish + age + sex + site, data=data_cveda) 
+model3 <- lm(p_sdq_tot ~ corpunish + age + sex + urbanisation +houseownership + site, data=data_cveda) 
 summary(model3) 
