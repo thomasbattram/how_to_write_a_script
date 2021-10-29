@@ -1,6 +1,6 @@
-# ------------------------------------
+# ------------------------------------------------------------------------
 # cVEDA: Association between parental punishment and behaviour 
-# ------------------------------------
+# ------------------------------------------------------------------------
 
 # This script assesses the association between parental corporal punishment
 # and total sdq (Strength and Difficulty Questionnaire) score within the cveda cohort
@@ -11,9 +11,9 @@ setwd("a_directory")
 
 data_cveda <- read.delim("data_cveda.txt")
 
-# ------------------------------------
+# ------------------------------------------------------------------------
 # Examine the data and add a variable for children
-# ------------------------------------
+# ------------------------------------------------------------------------
 
 # list the variables in data_cveda
 names(data_cveda)  
@@ -52,9 +52,9 @@ max(d_child$p_sdq_tot, na.rm = TRUE) # 32
 range(d_child$p_sdq_tot, na.rm = TRUE) # 0-32
 summary(d_child$p_sdq_tot, na.rm = TRUE) # 0, 8, 12, 11.97, 16, 32, NA (56) 
 
-# ------------------------------------
-# Run the analyses! 
-# ------------------------------------
+# ------------------------------------------------------------------------
+# Assess the relationship between SDQ variables and corp punishment
+# ------------------------------------------------------------------------
 
 # correlation between SDQ emotion problems and SDQ conduct problems
 cor(data_cveda$p_sdq_emotion, data_cveda$p_sdq_conduct, use = “pairwise.complete.obs”)  
@@ -72,11 +72,11 @@ boxplot(p_sdq_emotion ~ corpunish, data = data_cveda)
 # Model 2 includes adjustment for age and sex
 # Model 3 includes adjustment for age, sex, urbanisation, houseownership and site 
 
-model1 <- lm(p_sdq_tot ~ corpunish, data=data_cveda) 
+model1 <- lm(p_sdq_tot ~ corpunish, data = data_cveda) 
 summary(model1)
 
-model2 <- lm(p_sdq_tot ~ corpunish + age + sex, data=data_cveda) 
+model2 <- lm(p_sdq_tot ~ corpunish + age + sex, data = data_cveda) 
 summary(model2) 
 
-model3 <- lm(p_sdq_tot ~ corpunish + age + sex + urbanisation +houseownership + site, data=data_cveda) 
+model3 <- lm(p_sdq_tot ~ corpunish + age + sex + urbanisation +houseownership + site, data = data_cveda) 
 summary(model3) 

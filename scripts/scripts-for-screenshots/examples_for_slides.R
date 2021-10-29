@@ -73,22 +73,15 @@ a.var <- c(1, 2, 3)
 aVar <- c(1, 2, 3)
 
 
-
-
-
-
-
-
 x <-c(1,2,51,124,4124)
 x <- c(1, 2, 51, 124, 4124)
 x   <-        c(1   ,2    ,   51,124    , 4124) 
 
 
+my_plot <- plot(x = my_data$x, y = mydata$y, xlab = "My X-axis label", ylab = "My Y-axis label", main = "My incredible plot")
 
-
-
-
-
-
-
-
+my_plot <- plot(x = my_data$x, 
+                y = my_data$y, 
+                xlab = "My X-axis label", 
+                ylab = "My Y-axis label", 
+                main = "My plot title")
